@@ -118,7 +118,7 @@ const Brag = () => {
             <BragInnerWrapper>
             <BragTitle>🧼Clean</BragTitle>
             <LinkButtonWrapper>
-                <LinkButton to="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmarkus.wyrin.se%2F">GitHub</LinkButton>
+                <LinkButton to="https://github.com/MarkusWy/portfolio">GitHub</LinkButton>
                 <LinkDescription>See the source code for this site!</LinkDescription>
             </LinkButtonWrapper>
             <BragSubtitle>I write clean code without spaghetti 🍝</BragSubtitle>

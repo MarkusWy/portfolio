@@ -56,7 +56,7 @@ function App() {
        focus and populate the text. 
       </label><br/> 
       <textarea ref={focusPoint} />
-      <textarea ref={focusPoint2} /> 
+      <textarea ref={focusPoint2} />
       <textarea ref={focusPoint} /> 
       { isFocused &&
         <textarea ref={focusPoint2} /> 

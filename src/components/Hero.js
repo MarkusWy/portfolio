@@ -16,6 +16,11 @@ const Title = styled.h1`
 const Subtitle = styled.h3`
   color: #0081ff;
   font-size: 2vw;
+
+  //text align center in mobile
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
 const Overlay = styled.div`

@@ -20,9 +20,18 @@ module.exports = {
         cssPropOptimization: true,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-svg",
+      options: {
+        rule: {
+          include: '/src/icons/' // See below to configure properly
+        }
+      }
+    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sass`,
+
   ],
 }

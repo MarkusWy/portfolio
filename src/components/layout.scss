@@ -17,7 +17,44 @@ body {
       }
     }
 
+    body {
+      width: 300px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+      font-family: sans-serif;
+    }
+    
+    p {
+      line-height: 1.4;
+    }
+    
+    a {
+      outline: none;
+    }
+    
+    a:link {
+      color: black;
+    }
+    
+    a:visited {
+      color: black;
+    }
+    
+    a:focus {
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: none;
+      color: #0081ff;
+    }
+    
+    a:active {
+      color: #0081ff;
+    }
+
 }
+
 
 $bubble-count: 20;
 $sway-type: "sway-left-to-right", "sway-right-to-left";

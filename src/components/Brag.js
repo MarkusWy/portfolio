@@ -40,7 +40,7 @@ const BragSubtitle = styled.div`
 
 const LinkButton = styled(Link)`
   background-color: #0081ff;
-  color: white;
+  color: white !Important;
   padding: 15px 32px;
   display: block;
   width: fit-content;

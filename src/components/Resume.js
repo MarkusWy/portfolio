@@ -23,16 +23,20 @@ const Column = styled.div`
   content: "";
   width: 100%;
   height: 100%;
+  font-family: "Open Sans", sans-serif;
 `;
 
 const Title = styled.div`
   font-size: 32px;
-  color: black;
+  color: #0081ff;
 `;
 
 const Subtitle = styled.div`
   font-size: 24px;
   color: black;
+  margin-bottom: 8px;
+  color: #0081ff;
+
 `;
 
 const ResumeWrapper = styled.div`
@@ -52,6 +56,7 @@ const ListItem = styled.li`
 
 const Flex = styled.div`
   display: flex;
+  width: 50%;
 `;
 
 const Resume = () => {
@@ -113,6 +118,7 @@ const Resume = () => {
                 <ListItem text="☁️">Oracle Cloud</ListItem>
                 <ListItem text="🐣">Heroku</ListItem>
                 <ListItem text="🚢">Docker</ListItem>
+                <ListItem text="💚">Gatsby Cloud</ListItem>
               </ul>
             </Column>
           </Flex>

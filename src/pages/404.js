@@ -17,7 +17,7 @@ const ComingSoon = () => {
   return (
     <Layout>
       <Header/>
-      <Hero/>
+      <Hero subtitle="DERP"/>
       <title>Coming soon</title>
       <Embarrasing>
         <p>

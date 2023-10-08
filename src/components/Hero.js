@@ -7,19 +7,23 @@ const Wrapper = styled.div`
   height: 70vh;
 `;
 
-const Title = styled.h1`
+const Title = styled.h2`
   color: #0073ec;
   font-size: 10vw;
   margin-bottom: 0;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
 `;
 
-const Subtitle = styled.h2`
+const Subtitle = styled.h1`
   color: #0073ec;
   font-size: 2vw;
 
   //text align center in mobile
   @media (max-width: 768px) {
     text-align: center;
+    font-size: 16px;
   }
 `;
 
@@ -56,7 +60,7 @@ const LeftSide = styled.div`
   margin-top: 32px;
 `;
 
-const Hero = () => {
+const Hero = ({subtitle="Software Engineer & tech enthusiast"}) => {
     return (
         <Wrapper className="bubbles">
           {Array.from({length: 20}, (v, i) => (
@@ -75,7 +79,7 @@ const Hero = () => {
             </LeftSide>
             <RightSide>
                 <Title>Markus Wyrin</Title>
-                <Subtitle>Software Engineer & tech enthusiast</Subtitle>
+                <Subtitle>{subtitle}</Subtitle>
             </RightSide>
             </Overlay>
         </Wrapper>

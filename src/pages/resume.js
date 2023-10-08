@@ -4,7 +4,6 @@ import Layout from "../components/layout";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Resume from "../components/Resume";
-import Brag from "../components/Brag";
 import Footer from "../components/Footer";
 import Seo from "../components/seo";
 
@@ -18,11 +17,10 @@ const ComponentsWrapper = styled.div`
 const Home = () => {
   return (
     <Layout>
-      <title>Markus Wyrin</title>
       <Header/>
-      <Hero/>
+      <Hero subtitle="This is what I have accomplished so far"/>
       <ComponentsWrapper>
-        <Brag/>
+        <Resume/>
       </ComponentsWrapper>
       <Footer/>
     </Layout>

@@ -11,7 +11,7 @@ const Seo = ({ title, description, pathname, children }) => {
     url: `${siteUrl}${pathname || ``}`,
     linkedInUsername,
   }
-
+  //@todo properly fill in the linkedin fields
   return (
     <>
       <title>{seo.title}</title>

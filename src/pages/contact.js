@@ -18,7 +18,7 @@ const Contact = () => {
     return (
         <Layout>
             <Header/>
-            <Hero/>
+            <Hero subtitle="Get in contact with me"/>
             <ComponentsWrapper>
                 <ContactForm/>
             </ComponentsWrapper>

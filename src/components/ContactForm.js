@@ -185,16 +185,23 @@ const ContactForm = () => {
             }
             <Form onSubmit={handleOnSubmit}>
                 {/* dropdown asking reason for contact */}
+                <label>
+                    Select a reason for contact
                 <DropdownSelector required name="reason" id="reason">
                     <option value="">Reason for Contact</option>
                     <option value="freelance">Freelance.</option>
                     <option value="job">Job oppurtunity.</option>
                     <option value="other">Other.</option>
                 </DropdownSelector>
+                </label>
 
+                <label>Your first and last name</label>
                 <TextInput required type="text" name="name" placeholder="Your Name*"/>
+                <label>The email address you wish to be contacted on</label>
                 <TextInput required type="email" name="email" placeholder="Your Contact Email*"/>
+                <label>Your mobile phone number</label>
                 <TextInput type="text" name="number" placeholder="Phone number"/>
+                <label>A message you wish to send to me</label>
                 <TextArea type="text" name="message" placeholder="Message"/>
                 <ConsentWrapper>
                     <input required type="checkbox" name="consent" id="consent"/>

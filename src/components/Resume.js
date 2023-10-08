@@ -28,14 +28,14 @@ const Column = styled.div`
 
 const Title = styled.div`
   font-size: 32px;
-  color: #0081ff;
+  color: #0073ec;
 `;
 
 const Subtitle = styled.div`
   font-size: 24px;
   color: black;
   margin-bottom: 8px;
-  color: #0081ff;
+  color: #0073ec;
 
 `;
 

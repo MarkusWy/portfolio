@@ -21,17 +21,17 @@ const HeaderLink = styled(Link)`
   color: black;
   margin-left: 16px;
   text-decoration: none;
-  border-bottom: 1px solid #0081ff;
+  border-bottom: 1px solid #0073ec;
   font-family: "Roboto", sans-serif;
 `;
 
 const Header = () => {
   return (
     <HeaderWrapper>
-        <HeaderLink to="/#about">About</HeaderLink>
+        <HeaderLink to="/">Home</HeaderLink>
         <HeaderLink to="/#projects">Projects</HeaderLink>
         <HeaderLink to="/#resume">Resumé</HeaderLink>
-        <HeaderLink to="/#contact">Contact</HeaderLink>
+        <HeaderLink to="/contact">Contact</HeaderLink>
     </HeaderWrapper>
   )
 }

@@ -8,13 +8,13 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.h1`
-  color: #0081ff;
+  color: #0073ec;
   font-size: 10vw;
   margin-bottom: 0;
 `;
 
-const Subtitle = styled.h3`
-  color: #0081ff;
+const Subtitle = styled.h2`
+  color: #0073ec;
   font-size: 2vw;
 
   //text align center in mobile

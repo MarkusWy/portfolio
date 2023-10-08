@@ -8,6 +8,13 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  siteMetadata: {
+    title: `Markus Wyrin Portfolio`,
+    description: `Markus Wyrins portfolio site`,
+    linkedInUsername: `markus-wyrin`,
+    image: `/gatsby-icon.png`,
+    siteUrl: `https://www.markus.wyrin.se`,
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-emotion`,
@@ -26,6 +33,12 @@ module.exports = {
         rule: {
           include: '/src/icons/' // See below to configure properly
         }
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en-GB'
       }
     },
     `gatsby-plugin-image`,

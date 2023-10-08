@@ -47,7 +47,7 @@ const BragSubtitle = styled.div`
 `;
 
 const LinkButton = styled(Link)`
-  background-color: #0081ff;
+  background-color: #0073ec;
   color: white !Important;
   padding: 15px 32px;
   display: block;
@@ -56,7 +56,7 @@ const LinkButton = styled(Link)`
 
   &::hover {
     background-color: white;
-    color: #0081ff;
+    color: #0073ec;
   }
 `;
 
@@ -129,7 +129,7 @@ const Brag = () => {
             <BragInnerWrapper>
             <BragTitle>👨‍💻Contact me</BragTitle>
             <LinkButtonWrapper>
-                <LinkButton to="#contact">Get in touch</LinkButton>
+                <LinkButton to="/contact">Get in touch</LinkButton>
                 <LinkDescription>I look forward to hearing from you!</LinkDescription>
             </LinkButtonWrapper>
             <BragSubtitle>Do you want help with your business?<br/>get in touch!</BragSubtitle>

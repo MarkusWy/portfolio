@@ -29,7 +29,6 @@ const Header = () => {
   return (
     <HeaderWrapper>
         <HeaderLink to="/">Home</HeaderLink>
-        <HeaderLink to="/#projects">Projects</HeaderLink>
         <HeaderLink to="/#resume">Resumé</HeaderLink>
         <HeaderLink to="/contact">Contact</HeaderLink>
     </HeaderWrapper>

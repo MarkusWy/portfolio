@@ -41,6 +41,33 @@ module.exports = {
         lang: 'en-GB'
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Markus Wyrin Portfolio`,
+        short_name: `Markus Wyrin`,
+        start_url: `/`,
+        background_color: `#0073ec`,
+        theme_color: `#ffff00`,
+        display: `standalone`,
+        icon: `src/icons/markus.webp`, // This path is relative to the root of the site.
+        icon_options: {
+          // For all the options available,
+          // please see the section "Additional Resources" below.
+          purpose: `any maskable`,
+        },
+        cache_busting_mode: 'none', // this is a fi for offline caching
+      },
+    },
+    {
+      // gatsby-plugin-offline needs to be after gatsby-plugin-manifest
+      resolve: 'gatsby-plugin-offline',
+      options: {
+         workboxConfig: {
+            globPatterns: ['**/markus*']
+         }
+      }
+   },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images

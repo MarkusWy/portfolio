@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
+import Seo from "../components/seo";
 
 const Embarrasing = styled.div`
     font-size: 32px;
@@ -28,6 +29,12 @@ const ComingSoon = () => {
       <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ?si=Pf2IDz-E5MUuetPQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       <Footer/>
     </Layout>
+  )
+}
+
+export function Head() {
+  return (
+    <Seo/>
   )
 }
 

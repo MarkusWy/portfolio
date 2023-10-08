@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import styled from "@emotion/styled";
+import Seo from "../components/seo";
 
 const ComponentsWrapper = styled.div`
   margin: auto;
@@ -25,5 +26,11 @@ const Contact = () => {
         </Layout>
     );
 };
+
+export function Head() {
+    return (
+      <Seo/>
+    )
+}
   
 export default Contact;

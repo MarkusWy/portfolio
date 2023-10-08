@@ -24,15 +24,31 @@ const Overlay = styled.div`
   left: 0;
   display: flex;
   margin-top: 40px;
+
+  //mobile overrides
+  @media (max-width: 768px) {
+    flex-direction: column;
+    img {
+      width: 50%;
+      margin: 0 auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      font-size: 16px;
+      margin-left: 32px;
+    }
+  }
 `;
 
 const RightSide = styled.div`
-width: 100%;
-height: 100%;
+  width: 100%;
+  height: 100%;
 `;
 
 const LeftSide = styled.div`
-margin-top: 32px;
+  margin-top: 32px;
 `;
 
 const Hero = () => {

@@ -21,7 +21,7 @@ const HeaderLink = styled(Link)`
   color: black;
   margin-left: 16px;
   text-decoration: none;
-  border-bottom: 1px solid blue;
+  border-bottom: 1px solid #0081ff;
   font-family: "Roboto", sans-serif;
 `;
 

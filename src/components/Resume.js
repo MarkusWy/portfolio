@@ -57,6 +57,10 @@ const ListItem = styled.li`
 const Flex = styled.div`
   display: flex;
   width: 50%;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const Resume = () => {

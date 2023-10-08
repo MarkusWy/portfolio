@@ -3,9 +3,13 @@ import styled from "@emotion/styled";
 import { Link } from "gatsby"
 
 const BragTitle = styled.div`
-  min-height: 100px;
   font-size: 64px;
   margin-bottom: 16px;
+
+  //mobile overrides
+  @media (max-width: 768px) {
+    font-size: 32px;
+  }
 `;
 
 const BragWrapper = styled.div`
@@ -33,9 +37,13 @@ const BragInnerWrapper = styled.div`
 `;
 
 const BragSubtitle = styled.div`
-  min-height: 100px;
   font-size: 25px;
   margin-top: 16px;
+
+  //smaller font size on mobile
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 
 const LinkButton = styled(Link)`
@@ -54,10 +62,19 @@ const LinkButton = styled(Link)`
 
 const LinkButtonWrapper = styled.div`
   display: flex;
+
+  //flex direction column on mobile
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 const LinkDescription = styled.div`
   margin: auto 16px;
+
+  @media (max-width: 768px) {
+    margin: 16px 0;
+  }
 `;
 
 const BragGrid = styled.div`

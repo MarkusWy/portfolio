@@ -4,42 +4,98 @@ import styled from "@emotion/styled";
 import Layout from "../components/layout";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
+import Resume from "../components/Resume";
 import { Link } from "gatsby"
 
-const Row = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
+const BragTitle = styled.div`
+  min-height: 100px;
+  font-size: 100px;
+  margin-bottom: 16px;
+`;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
+const BragWrapper = styled.div`
+  min-height: 300px;
+  padding:32px;
+`;
+
+const BragSubtitle = styled.div`
+  min-height: 100px;
+  font-size: 25px;
+  margin-top: 16px;
+`;
+
+const LinkButton = styled(Link)`
+  background-color: #0081ff;
+  color: white;
+  padding: 15px 32px;
+  display: block;
+  width: fit-content;
+  border-radius: 10px;
+
+  &::hover {
+    background-color: white;
+    color: #0081ff;
   }
 `;
 
-const Column = styled.div`
-  flex: 1;
-  padding: 16px;
-  background: green;
-  content: "";
-  width: 100&;
-  height: 100%;
+const LinkButtonWrapper = styled.div`
+  display: flex;
 `;
 
-const loremIpsum = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+const LinkDescription = styled.div`
+  margin: auto 16px;
+`;
+
+const BragGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
+`;
 
 const Home = () => {
   return (
     <Layout>
+      <title>Markus Wyrin</title>
       <Header/>
       <Hero/>
-      <Row id="resume">
-        <Column>{loremIpsum}</Column>
-        <Column>{loremIpsum}</Column>
-        <Column>{loremIpsum}</Column>
-      </Row>
+      <BragGrid>
+        <BragWrapper>
+          <BragTitle>🚀Optimized</BragTitle>
+          <LinkButtonWrapper>
+            <LinkButton to="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmarkus.wyrin.se%2F">PageSpeed Insights</LinkButton>
+            <LinkDescription>Feel free to audit this site!</LinkDescription>
+          </LinkButtonWrapper>
+          <BragSubtitle>I pride myself in making well optimized, fast applications.</BragSubtitle>
+        </BragWrapper>
+
+        <BragWrapper>
+          <BragTitle>🚀Optimized</BragTitle>
+          <LinkButtonWrapper>
+            <LinkButton to="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmarkus.wyrin.se%2F">PageSpeed Insights</LinkButton>
+            <LinkDescription>Feel free to audit this site!</LinkDescription>
+          </LinkButtonWrapper>
+          <BragSubtitle>I pride myself in making well optimized, fast applications.</BragSubtitle>
+        </BragWrapper>
+
+        <BragWrapper>
+          <BragTitle>🚀Optimized</BragTitle>
+          <LinkButtonWrapper>
+            <LinkButton to="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmarkus.wyrin.se%2F">PageSpeed Insights</LinkButton>
+            <LinkDescription>Feel free to audit this site!</LinkDescription>
+          </LinkButtonWrapper>
+          <BragSubtitle>I pride myself in making well optimized, fast applications.</BragSubtitle>
+        </BragWrapper>
+
+        <BragWrapper>
+          <BragTitle>🚀Optimized</BragTitle>
+          <LinkButtonWrapper>
+            <LinkButton to="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fmarkus.wyrin.se%2F">PageSpeed Insights</LinkButton>
+            <LinkDescription>Feel free to audit this site!</LinkDescription>
+          </LinkButtonWrapper>
+          <BragSubtitle>I pride myself in making well optimized, fast applications.</BragSubtitle>
+        </BragWrapper>
+      </BragGrid>
+      <Resume/>
     </Layout>
   )
 }

@@ -71,6 +71,7 @@ module.exports = {
       }
    },
     `gatsby-plugin-image`,
+    `gatsby-plugin-sharp`,
     {
 			resolve: "gatsby-source-prismic",
 			/**
@@ -88,7 +89,17 @@ module.exports = {
 				],
 			},
 		},
-    `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-source-prismic`,
+    //   options: {
+    //     repositoryName: `${process.env.GATSBY_PRISMIC_REPO_NAME}`,
+    //     accessToken: `${process.env.API_KEY}`,
+    //     linkResolver: ({ node, key, value }) => post => `/${post.uid}`,
+    //     schemas: {
+    //       post: require("./custom_types/post.json"),
+    //     },
+    //   },
+    // },
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sass`,
   ],

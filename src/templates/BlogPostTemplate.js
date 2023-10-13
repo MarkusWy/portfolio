@@ -12,7 +12,7 @@ const BlogPostTemplate = ({location, pageContext, pageResources, params, path, s
       <>
         {postContent.map ((post, index) => (
             <div key={index}>
-                <Wysiwyg html={post.prismic_wysiwyg.hmtl}/>
+                <Wysiwyg html={post.prismic_wysiwyg.html}/>
             </div>
         ))}
         <h1>Blog Post</h1>

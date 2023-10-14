@@ -11,10 +11,11 @@ const HeaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 2px solid #0073ec;
 
   position: sticky;
-    top: 0;
-    z-index: 1000;
+  top: 0;
+  z-index: 1000;
 `;
 
 const HeaderLink = styled(Link)`

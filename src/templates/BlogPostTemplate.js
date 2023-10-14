@@ -7,7 +7,6 @@ import Footer from "../components/Footer";
 import Seo from "../components/seo";
 import styled from "@emotion/styled";
 
-
 const BlogPostWrapper = styled.div`
   padding: 0 32px;
   align-items: center;
@@ -15,6 +14,11 @@ const BlogPostWrapper = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: row;
+
+  //padding top on desktop
+  @media (max-width: 768px) {
+    padding-top: 16px;
+  }
 
   //flex-direction row on mobile
   @media (max-width: 768px) {
@@ -43,24 +47,53 @@ const IntroWrapper = styled.div`
   min-width: 20vw;
 `;
 
+const MainImageWrapper = styled.div`
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    height: 400px;
+    border-bottom: 5px #0073ec dotted;
+    padding-bottom: 16px;
+  }
+`;
+
+const MainImage = styled.picture`
+  object-fit: contain;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+`;
+
 const BlogPostTemplate = ({location, pageContext, pageResources, params, path, serverData, uri, ...rest}) => {
     const postContent = pageContext.postContent;
+    const mainImage = pageContext.mainImage;
+    const {dimensions, gatsbyImageData} = mainImage;
 
-    console.log(pageContext.title);
+    console.log(dimensions, gatsbyImageData);
 
     return (
       <>
         <Layout>
           <Header/>
           <Hero subtitle={pageContext.title}/>
+          <MainImageWrapper>
+            <MainImage>
+              <img alt="" srcSet={gatsbyImageData.images.fallback.srcSet} sizes={gatsbyImageData.images.fallback.sizes}/>
+            </MainImage>
+          </MainImageWrapper>
           <BlogPostWrapper>
             <IntroWrapper>
-              <h1>{pageContext.title}</h1>
-              <h3>{pageContext.date}</h3>
+              <h2>{pageContext.title}</h2>
             </IntroWrapper>
             <PostContentWrapper>
               {postContent.map ((post, index) => (
-                <Wysiwyg index={index} html={post.prismic_wysiwyg.html}/>
+                <Wysiwyg key={index} html={post.prismic_wysiwyg.html}/>
               ))}
             </PostContentWrapper>
           </BlogPostWrapper>

@@ -19,9 +19,10 @@ exports.createPages = async ({ graphql, actions }) => {
             prismicId
             data {
               main_image {
-                url
-                localFile {
-                  absolutePath
+                gatsbyImageData
+                dimensions {
+                  width
+                  height
                 }
               }
               blog_post_content {
@@ -40,6 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
   result.data.allPrismicBlogPost.edges.forEach(edge => {
 
+    const mainImage = edge.node.data.main_image;
     const postContent = edge.node.data.blog_post_content;
 
     // This is used to create responsive images from prismic wysiwyg data for our blog posts.
@@ -74,7 +76,8 @@ exports.createPages = async ({ graphql, actions }) => {
       component: blogPostTemplate,
       context: {
         title: edge.node.data.post_title.text,
-        postContent: transformedPostContent
+        postContent: transformedPostContent,
+        mainImage: mainImage,
       },
     })
   })

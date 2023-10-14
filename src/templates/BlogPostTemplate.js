@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import Footer from "../components/Footer";
 import Seo from "../components/seo";
 import styled from "@emotion/styled";
+import { Link } from "gatsby"
 
 const BlogPostWrapper = styled.div`
   padding: 0 32px;
@@ -45,6 +46,12 @@ const IntroWrapper = styled.div`
   display: block;
   color: black;
   min-width: 20vw;
+
+  //desktop styling
+  @media (min-width: 768px) {
+    top: 32px;
+    position: sticky;
+  }
 `;
 
 const MainImageWrapper = styled.div`
@@ -70,12 +77,18 @@ const MainImage = styled.picture`
   }
 `;
 
+
+const StyledLink = styled(Link)`
+  color: #0073ec;
+  text-decoration: none;
+  padding: 8px;
+  display: inline-block;
+`;
+
 const BlogPostTemplate = ({location, pageContext, pageResources, params, path, serverData, uri, ...rest}) => {
     const postContent = pageContext.postContent;
     const mainImage = pageContext.mainImage;
     const {dimensions, gatsbyImageData} = mainImage;
-
-    console.log(dimensions, gatsbyImageData);
 
     return (
       <>
@@ -90,10 +103,17 @@ const BlogPostTemplate = ({location, pageContext, pageResources, params, path, s
           <BlogPostWrapper>
             <IntroWrapper>
               <h2>{pageContext.title}</h2>
+              <ol>
+                {postContent.map ((post, index) => (
+                  <li key={index}>
+                    <StyledLink to={`#${post.section_id.replace(' ', '-').toLowerCase()}`}>{post.section_id}</StyledLink>
+                  </li>
+                ))}
+              </ol>
             </IntroWrapper>
             <PostContentWrapper>
               {postContent.map ((post, index) => (
-                <Wysiwyg key={index} html={post.prismic_wysiwyg.html}/>
+                <Wysiwyg key={index} section_id={post.section_id} html={post.prismic_wysiwyg.html}/>
               ))}
             </PostContentWrapper>
           </BlogPostWrapper>

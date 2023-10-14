@@ -29,11 +29,11 @@ const HtmlWrapper = styled.div`
     }
 `
 
-const Wysiwyg = ({html}) => {
+const Wysiwyg = ({html, section_id}) => {
 
     return (
         <>
-            <HtmlWrapper dangerouslySetInnerHTML={{ __html: html }} />
+            <HtmlWrapper id={section_id.replace(' ', '-').toLowerCase()} dangerouslySetInnerHTML={{ __html: html }} />
         </>
     )
 }

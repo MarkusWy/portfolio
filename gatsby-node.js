@@ -29,6 +29,7 @@ exports.createPages = async ({ graphql, actions }) => {
                 prismic_wysiwyg {
                   html
                 }
+                section_id
               }
               post_title {
                 text

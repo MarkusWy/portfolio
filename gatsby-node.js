@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const postContent = edge.node.data.blog_post_content;
 
     // This is used to create responsive images from prismic wysiwyg data for our blog posts.
-    const transformedPostContent = postContsent.map(post => {
+    const transformedPostContent = postContent.map(post => {
       // This gets the content inside quotes ""
       const srcRegex = /"(.*?)"/g;
       // This gets the whole image tag from opening to closing />

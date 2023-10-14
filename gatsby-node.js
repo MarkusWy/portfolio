@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     createPage({
-      path: `${edge.node.data.post_title.text}`,
+      path: `${edge.node.data.post_title.text.replaceAll(' ', '-').toLowerCase()}`,
       component: blogPostTemplate,
       context: {
         title: edge.node.data.post_title.text,

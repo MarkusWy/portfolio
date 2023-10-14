@@ -8,31 +8,62 @@ import Seo from "../components/seo";
 import styled from "@emotion/styled";
 
 
-const ComponentsWrapper = styled.div`
-  margin: auto;
-  max-width: 1200px;
+const BlogPostWrapper = styled.div`
   padding: 0 32px;
   align-items: center;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+
+  //flex-direction row on mobile
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+  max-width: 1000px;
+
+  margin: auto;
+`;
+
+const PostContentWrapper = styled.div`
+  display: block;
+  border-left: 5px dotted #0073ec;
+  padding-left: 32px;
+
+  @media (max-width: 768px) {
+    padding: 16px 0 0;
+    border-left: none;
+    border-top: 5px dotted #0073ec;
+  }
+`;
+
+const IntroWrapper = styled.div`
+  display: block;
+  color: black;
+  min-width: 20vw;
 `;
 
 const BlogPostTemplate = ({location, pageContext, pageResources, params, path, serverData, uri, ...rest}) => {
     const postContent = pageContext.postContent;
 
-    console.log(postContent);
+    console.log(pageContext.title);
 
     return (
       <>
         <Layout>
           <Header/>
-          <Hero subtitle="This is what I have accomplished so far"/>
-          <ComponentsWrapper>
-          <h1>Blog Post</h1>
-            {postContent.map ((post, index) => (
-              <div key={index}>
-                  <Wysiwyg html={post.prismic_wysiwyg.html}/>
-              </div>
-            ))}
-          </ComponentsWrapper>
+          <Hero subtitle={pageContext.title}/>
+          <BlogPostWrapper>
+            <IntroWrapper>
+              <h1>{pageContext.title}</h1>
+              <h3>{pageContext.date}</h3>
+            </IntroWrapper>
+            <PostContentWrapper>
+              {postContent.map ((post, index) => (
+                <Wysiwyg index={index} html={post.prismic_wysiwyg.html}/>
+              ))}
+            </PostContentWrapper>
+          </BlogPostWrapper>
           <Footer/>
         </Layout>
       </>

@@ -5,11 +5,27 @@ const HtmlWrapper = styled.div`
     width: 100%;
 
     img {
-        width: 100vw;
-        height: 100vw;
-
         max-height: 1500px;
         max-width: 1500px;
+
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1;
+
+        //50% width and height on desktop
+        @media (max-width: 768px) {
+            width: 50%;
+            height: 50%;
+        }
+
+    }
+    .block-img {
+        width: 50%;
+        // width 100% on mobile
+        @media (max-width: 768px) {
+            width: 100%;
+            text-align: center;
+        }
     }
 `
 

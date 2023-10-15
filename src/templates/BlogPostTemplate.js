@@ -74,6 +74,7 @@ const MainImage = styled.picture`
     width: 100%;
     height: 100%;
     object-fit: contain;
+    border-radius: 15px;
   }
 `;
 
@@ -88,7 +89,7 @@ const StyledLink = styled(Link)`
 const BlogPostTemplate = ({location, pageContext, pageResources, params, path, serverData, uri, ...rest}) => {
     const postContent = pageContext.postContent;
     const mainImage = pageContext.mainImage;
-    const {dimensions, gatsbyImageData} = mainImage;
+    const {gatsbyImageData} = mainImage;
 
     return (
       <>

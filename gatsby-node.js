@@ -8,6 +8,7 @@ exports.onPostBuild = ({ reporter }) => {
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const blogPostTemplate = path.resolve(`src/templates/BlogPostTemplate.js`)
+  const blogPostListingTemplate = path.resolve(`src/templates/BlogPostListingTemplate.js`)
   const result = await graphql(`
     query {
       allPrismicBlogPost {
@@ -20,10 +21,10 @@ exports.createPages = async ({ graphql, actions }) => {
             data {
               main_image {
                 gatsbyImageData
-                dimensions {
-                  width
-                  height
-                }
+                # dimensions {
+                #   width
+                #   height
+                # }
               }
               blog_post_content {
                 prismic_wysiwyg {
@@ -40,6 +41,27 @@ exports.createPages = async ({ graphql, actions }) => {
       }
     }
   `)
+
+  const titleToPath = (title) => `${title.replaceAll(' ', '-').toLowerCase().replaceAll('---', '-')}`;
+
+  const getMainImages = (edgesArray) => {
+    return edgesArray.map(edge => {
+      return {
+        image: edge.node.data.main_image.gatsbyImageData.images,
+        title: edge.node.data.post_title.text,
+        path: `/${titleToPath(edge.node.data.post_title.text)}`,
+      }
+    })
+  }
+
+  createPage({
+    path: '/posts',
+    component: blogPostListingTemplate,
+    context: {
+      posts: getMainImages(result.data.allPrismicBlogPost.edges),
+    },
+  })
+
   result.data.allPrismicBlogPost.edges.forEach(edge => {
 
     const mainImage = edge.node.data.main_image;
@@ -74,7 +96,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
 
     createPage({
-      path: `${edge.node.data.post_title.text.replaceAll(' ', '-').toLowerCase()}`,
+      path: titleToPath(edge.node.data.post_title.text),
       component: blogPostTemplate,
       context: {
         title: edge.node.data.post_title.text,

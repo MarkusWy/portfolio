@@ -95,7 +95,7 @@ const BlogPostTemplate = (props) => {
     return (
         <Layout>
             <Header/>
-            <Hero/>
+            <Hero subtitle="This is where I write 'n stuff :)"/>
             <PostListingOuterWrapper>
                 <PostListingWrapper>
                     { props.pageContext.posts.map( (post, index) => 

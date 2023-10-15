@@ -7,6 +7,8 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config();
+
 module.exports = {
   siteMetadata: {
     title: `Markus Wyrin Portfolio`,
@@ -70,8 +72,24 @@ module.exports = {
    },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
+    {
+			resolve: "gatsby-source-prismic",
+			/**
+			 * @type {import("gatsby-source-prismic").PluginOptions}
+			 */
+			options: {
+				repositoryName: process.env.GATSBY_PRISMIC_REPO_NAME,
+				accessToken: process.env.PRISMIC_ACCESS_TOKEN,
+				customTypesApiToken: process.env.PRISMIC_CUSTOM_TYPES_API_TOKEN,
+				routes: [
+					{
+						type: "blog_post",
+						path: "/blog_post/:uid",
+					},
+				],
+			},
+		},
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sass`,
-
   ],
 }

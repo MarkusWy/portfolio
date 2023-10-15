@@ -3,6 +3,22 @@ body {
     font-family: system-ui;
     overflow-x: hidden;
 
+    h1, h2, h3, h4, h5, h6 {
+      color: #0073ec;
+    }
+
+    h3 {
+      font-size: 32px;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    a {
+      font-size: 20px;
+    }
+
     @media (max-width: 767px) {
         .desktop {
           display: none;

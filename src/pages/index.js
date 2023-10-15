@@ -3,7 +3,6 @@ import styled from "@emotion/styled";
 import Layout from "../components/layout";
 import Header from "../components/Header";
 import Hero from "../components/Hero";
-import Resume from "../components/Resume";
 import Brag from "../components/Brag";
 import Footer from "../components/Footer";
 import Seo from "../components/seo";

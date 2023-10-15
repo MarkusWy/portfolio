@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
   width: 100vw;
-  height: 70vh;
+  height: 60vh;
 `;
 
 const Title = styled.h2`
@@ -37,6 +37,7 @@ const Overlay = styled.div`
   //mobile overrides
   @media (max-width: 768px) {
     flex-direction: column;
+    width: 100%;
     img {
       width: 50%;
       margin: 0 auto;
@@ -54,10 +55,12 @@ const Overlay = styled.div`
 const RightSide = styled.div`
   width: 100%;
   height: 100%;
+  align-self: center;
 `;
 
 const LeftSide = styled.div`
   margin-top: 32px;
+  align-self: center;
 `;
 
 const Hero = ({subtitle="Software Engineer & tech enthusiast"}) => {

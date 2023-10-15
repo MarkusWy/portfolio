@@ -19,6 +19,7 @@ exports.createPages = async ({ graphql, actions }) => {
             lang
             prismicId
             data {
+              post_tag
               main_image {
                 gatsbyImageData
                 # dimensions {
@@ -48,6 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
     return edgesArray.map(edge => {
       return {
         image: edge.node.data.main_image.gatsbyImageData.images,
+        tag: edge.node.data.post_tag,
         title: edge.node.data.post_title.text,
         path: `/${titleToPath(edge.node.data.post_title.text)}`,
       }

@@ -66,7 +66,7 @@ const PostListingWrapper = styled.div`
         grid-gap: 32px;
         border-left: dotted blue;
         border-right: dotted blue;
-        max-width: 1000px;
+        max-width: 1200px;
     }
 
 

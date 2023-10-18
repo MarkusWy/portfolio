@@ -87,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
         const fullSrcSet = `"${withImgixParams('&width=1500&ar=1:1&fit=fill&fill=solid&bg=FFFFFF 1500w')}, ${withImgixParams('&width=1000&ar=1:1&fit=fill&fill=solid&bg=FFFFFF 1000w')}, ${withImgixParams('&width=500&ar=1:1&fit=fill&fill=solid&bg=FFFFFF 500w')}, ${withImgixParams('&width=300&ar=1:1&fit=fill&fill=solid&bg=FFFFFF 300w')}"`
 
         // data-srcset is replaced in the front-end at runtime with srcset for blur-up effect
-        const source = `<source sizes="(max-width: 480px) 50vw, (max-width: 900px) 33vw, (max-width: 1200px) 33vw, 20vw" data-srcset=${fullSrcSet}/>`
+        const source = `<source sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 500px" data-srcset=${fullSrcSet}/>`
         const imgPlaceholder = imgElement.replace('compress,format', 'compress,format&width=64&ar=1:1&fit=fill&fill=solid&bg=FFFFFF').replace('<img src=', '<img loading=lazy src=');
 
         // We inject the sources into the html string

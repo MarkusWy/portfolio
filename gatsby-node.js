@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  const titleToPath = (title) => `${title.replaceAll(' ', '-').toLowerCase().replaceAll('---', '-').replaceAll('c#', 'csharp')}`;
+  const titleToPath = (title) => `${title.replaceAll(' ', '-').toLowerCase().replaceAll('---', '-').replaceAll('c#', 'csharp')}/`;
 
   const getMainImages = (edgesArray) => {
     return edgesArray.map(edge => {
@@ -96,6 +96,8 @@ exports.createPages = async ({ graphql, actions }) => {
 
       return post;
     });
+
+    console.log('this is the path', titleToPath(edge.node.data.post_title.text));
 
     createPage({
       path: titleToPath(edge.node.data.post_title.text),

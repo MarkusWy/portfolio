@@ -91,5 +91,6 @@ module.exports = {
 		},
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sass`,
+    `gatsby-plugin-cloudflare-pages`,
   ],
 }

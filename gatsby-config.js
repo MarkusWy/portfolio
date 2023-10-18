@@ -61,15 +61,7 @@ module.exports = {
         cache_busting_mode: 'none', // this is a fi for offline caching
       },
     },
-    {
-      // gatsby-plugin-offline needs to be after gatsby-plugin-manifest
-      resolve: 'gatsby-plugin-offline',
-      options: {
-         workboxConfig: {
-            globPatterns: ['**/markus*']
-         }
-      }
-   },
+    `gatsby-plugin-offline`,
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
     {

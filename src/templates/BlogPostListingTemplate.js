@@ -7,14 +7,14 @@ import styled from "@emotion/styled";
 import { Link } from "gatsby"
 import Layout from "../components/layout";
 
-const PostTitle = styled.h5`
+const PostTitle = styled.div`
   text-align: center;
   font-size: 24px;
   text-transform: uppercase;
   font-weight: normal;
   text-decoration: none;
   text-wrap: pretty;
-  padding: 10px;
+  padding: 20px;
 `;
 
 const PostLink = styled(Link)`
@@ -22,18 +22,7 @@ const PostLink = styled(Link)`
     display: block;
     width: 100%;
     margin: auto;
-
-    rotate: -5deg;
-    float: right;
-
-    &:not(:nth-of-type(2n)) {
-        @media (max-width: 768px) {
-            rotate: 5deg;
-        }
-        span {
-            float: left;
-        }
-    }
+    padding: 20px 0;
 `;
 
     
@@ -52,11 +41,13 @@ const ImageWrapper = styled.div`
     justify-content: center;
 `;
 
-const PostListingWrapper = styled.div`
+const PostListingWrapper = styled.ul`
     width: 100%;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    list-style-type: none;
+    padding: 0;
 
 
     // max width on desktop
@@ -66,7 +57,7 @@ const PostListingWrapper = styled.div`
         grid-gap: 32px;
         border-left: dotted blue;
         border-right: dotted blue;
-        max-width: 1000px;
+        max-width: 1200px;
     }
 
 
@@ -78,7 +69,7 @@ const PostListingOuterWrapper = styled.div`
     display: flex;
 `;
 
-const Tag = styled.span`
+const Tag = styled.label`
     background-color: #0073ec;
     color: white;
     margin: 32px;
@@ -88,7 +79,21 @@ const Tag = styled.span`
     border-radius: 4px;
 `;
     
-    
+const ListItem = styled.li`
+    list-style-type: none;
+
+    rotate: -5deg;
+    float: right;
+
+    &:not(:nth-of-type(2n)) {
+        @media (max-width: 768px) {
+            rotate: 5deg;
+        }
+        span {
+            float: left;
+        }
+    }
+`
 
 const BlogPostTemplate = (props) => {
 
@@ -98,23 +103,25 @@ const BlogPostTemplate = (props) => {
             <Hero subtitle="This is where I write 'n stuff :)"/>
             <PostListingOuterWrapper>
                 <PostListingWrapper>
-                    { props.pageContext.posts.map( (post, index) => 
-                        <PostLink key={index} to={post.path}>
-                            <PostTitle>{post.title}</PostTitle>
-                            <ImageWrapper>
-                                <picture>
-                                    {post.image.sources.map( (source, index) =>
-                                        <source
-                                            srcSet={source.srcSet}
-                                            sizes={
-                                                "(max-width: 768px) 100vw, 300px"
-                                            }/>
-                                    )}
-                                    <PostImage loading="lazy" alt={post.title} srcSet={post.image.fallback.srcSet} src={post.image.fallback.src} />
-                                </picture>
-                            </ImageWrapper>
-                            <Tag>{post.tag || 'Article'}</Tag>
-                        </PostLink>
+                    { props.pageContext.posts.map( (post, index) =>
+                        <ListItem key={post.title}>
+                            <PostLink to={post.path}>
+                                <PostTitle>{post.title}</PostTitle>
+                                <ImageWrapper>
+                                    <picture>
+                                        {post.image.sources.map( (source, index) =>
+                                            <source
+                                                srcSet={source.srcSet}
+                                                sizes={
+                                                    "(max-width: 768px) 100vw,  200px"
+                                                }/>
+                                        )}
+                                        <PostImage loading={index > 1 ? "lazy" : null} alt={post.title} srcSet={post.image.fallback.srcSet} src={post.image.fallback.src} />
+                                    </picture>
+                                </ImageWrapper>
+                                <Tag>{post.tag || 'Article'}</Tag>
+                            </PostLink>
+                        </ListItem> 
                     )};
                 </PostListingWrapper>
             </PostListingOuterWrapper>

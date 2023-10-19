@@ -13,15 +13,9 @@ const HtmlWrapper = styled.div`
         width: 100%;
         height: 100%;
         aspect-ratio: 1;
-
-        //50% width and height on desktop
-        @media (max-width: 768px) {
-            width: 50%;
-            height: 50%;
-        }
     }
     .block-img {
-        width: 50%;
+        width: 80%;
         // width 100% on mobile
         @media (max-width: 768px) {
             width: 100%;

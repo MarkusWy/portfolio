@@ -45,7 +45,7 @@ const Overlay = styled.div`
     h1 {
       text-align: center;
     }
-    h3 {
+    h2 {
       font-size: 16px;
       margin-left: 32px;
     }
@@ -77,6 +77,7 @@ const Hero = ({subtitle="Software Engineer & tech enthusiast"}) => {
                 placeholder="none"
                 width={500}
                 height={500}
+                loading="eager"
                 imgStyle={{ borderRadius: '100%', border: "5px inset rgb(0 129 255 / 65%)", boxSizing: "border-box"}}
                 />
             </LeftSide>

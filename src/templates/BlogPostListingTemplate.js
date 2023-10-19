@@ -113,7 +113,7 @@ const BlogPostTemplate = (props) => {
                                             <source
                                                 srcSet={source.srcSet}
                                                 sizes={
-                                                    "(max-width: 768px) 100vw,  400px"
+                                                    "(max-width: 768px) 100vw,  200px"
                                                 }/>
                                         )}
                                         <PostImage loading={index > 1 ? "lazy" : null} alt={post.title} srcSet={post.image.fallback.srcSet} src={post.image.fallback.src} />

@@ -113,7 +113,7 @@ const BlogPostTemplate = (props) => {
                                             <source
                                                 srcSet={source.srcSet}
                                                 sizes={
-                                                    "(max-width: 768px) 100vw,  200px"
+                                                    "(max-width: 768px) 80vw,  200px"
                                                 }/>
                                         )}
                                         <PostImage loading={index > 1 ? "lazy" : null} alt={post.title} srcSet={post.image.fallback.srcSet} src={post.image.fallback.src} />
@@ -122,7 +122,7 @@ const BlogPostTemplate = (props) => {
                                 <Tag>{post.tag || 'Article'}</Tag>
                             </PostLink>
                         </ListItem> 
-                    )};
+                    )}
                 </PostListingWrapper>
             </PostListingOuterWrapper>
             <Footer/>

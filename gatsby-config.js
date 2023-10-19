@@ -15,7 +15,7 @@ module.exports = {
     description: `Markus Wyrins portfolio site`,
     linkedInUsername: `markus-wyrin`,
     image: `/gatsby-icon.png`,
-    siteUrl: `https://www.markus.wyrin.se`,
+    siteUrl: `https://markus.wyrin.se`,
   },
   plugins: [
     {
@@ -84,5 +84,6 @@ module.exports = {
     `gatsby-transformer-sharp`, // Needed for dynamic images
     `gatsby-plugin-sass`,
     `gatsby-plugin-cloudflare-pages`,
+    `gatsby-plugin-sitemap`,
   ],
 }

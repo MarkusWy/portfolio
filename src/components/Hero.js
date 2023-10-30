@@ -12,6 +12,8 @@ const Title = styled.h2`
   font-size: 10vw;
   margin-bottom: 0;
   @media (max-width: 768px) {
+    font-size: 40px;
+    text-align: center !important;
     text-align: center;
   }
 `;
@@ -44,10 +46,6 @@ const Overlay = styled.div`
     }
     h1 {
       text-align: center;
-    }
-    h2 {
-      font-size: 16px;
-      margin-left: 32px;
     }
   }
 `;

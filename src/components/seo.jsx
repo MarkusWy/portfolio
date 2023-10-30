@@ -2,7 +2,7 @@ import React from "react"
 import { useSiteMetadata } from "../hooks/use-site-metadata"
 
 const Seo = ({ title, description, pathname, children }) => {
-  const { title: defaultTitle, description: defaultDescription, image, siteUrl, linkedInUsername } = useSiteMetadata()
+  const { title: defaultTitle, description: defaultDescription, image, siteUrl, linkedInUsername, noIndex = false } = useSiteMetadata()
 
   const seo = {
     title: title || defaultTitle,
@@ -15,6 +15,9 @@ const Seo = ({ title, description, pathname, children }) => {
   return (
     <>
       <title>{seo.title}</title>
+      { noIndex &&
+        <meta name="robots" content="noindex, nofollow" />
+      }
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta name="linkedIn:card" content="summary_large_image" />

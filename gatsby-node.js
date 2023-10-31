@@ -1,5 +1,6 @@
 const parse = require('node-html-parser').default;
 const path = require(`path`)
+require('events').EventEmitter.defaultMaxListeners = 0;
 // Log out information after a build is done
 exports.onPostBuild = ({ reporter }) => {
   reporter.info(`Your Gatsby site has been built!`)
@@ -36,6 +37,7 @@ exports.createPages = async ({ graphql, actions }) => {
               post_title {
                 text
               }
+              shouldIndex: should_index 
             }
           }
         }
@@ -46,13 +48,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const titleToPath = (title) => `${title.replaceAll(' ', '-').toLowerCase().replaceAll('---', '-').replaceAll('c#', 'csharp')}/`;
 
   const getMainImages = (edgesArray) => {
-    return edgesArray.map(edge => {
-      return {
-        image: edge.node.data.main_image.gatsbyImageData.images,
-        tag: edge.node.data.post_tag,
-        title: edge.node.data.post_title.text,
-        path: `/${titleToPath(edge.node.data.post_title.text)}`,
-      }
+    return edgesArray.filter(edge => edge.node.data.shouldIndex).map(edge => {
+      if (!edge.node.data.shouldIndex) return null;
+     return {
+       image: edge.node.data.main_image.gatsbyImageData.images,
+       tag: edge.node.data.post_tag,
+       title: edge.node.data.post_title.text,
+       path: `/${titleToPath(edge.node.data.post_title.text)}`,
+     }
     })
   }
 
@@ -97,8 +100,6 @@ exports.createPages = async ({ graphql, actions }) => {
       return post;
     });
 
-    console.log('this is the path', titleToPath(edge.node.data.post_title.text));
-
     createPage({
       path: titleToPath(edge.node.data.post_title.text),
       component: blogPostTemplate,
@@ -106,6 +107,7 @@ exports.createPages = async ({ graphql, actions }) => {
         title: edge.node.data.post_title.text,
         postContent: transformedPostContent,
         mainImage: mainImage,
+        shouldIndex: edge.node.data.shouldIndex,
       },
     })
   })
